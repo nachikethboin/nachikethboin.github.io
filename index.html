@@ -15,26 +15,66 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             font-size: 17px;
             line-height: 1.47059;
-            color: #1d1d1f;
-            background: #fbfbfd;
+            color: #f5f5f7;
+            background: #000000;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
         
         /* Header */
         header {
-            background: rgba(251, 251, 253, 0.8);
+            background: rgba(0, 0, 0, 0.8);
             backdrop-filter: saturate(180%) blur(20px);
             padding: 80px 0 60px;
             text-align: center;
             position: relative;
         }
         
+        /* Sticky Name Bar */
+        .sticky-name-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: saturate(180%) blur(20px);
+            padding: 16px 0;
+            text-align: center;
+            z-index: 1000;
+            font-size: 21px;
+            font-weight: 600;
+            color: #f5f5f7;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateY(-100%);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .sticky-name-bar.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
         .hero-title {
             font-size: 56px;
             font-weight: 600;
             letter-spacing: -0.005em;
-            color: #1d1d1f;
+            color: #f5f5f7;
+            margin-bottom: 8px;
+            line-height: 1.07143;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .hero-title.shrink {
+            transform: scale(0.8) translateY(-20px);
+            opacity: 0.3;
+        }
+        
+        .hero-title {
+            font-size: 56px;
+            font-weight: 600;
+            letter-spacing: -0.005em;
+            color: #f5f5f7;
             margin-bottom: 8px;
             line-height: 1.07143;
         }
@@ -42,7 +82,7 @@
         .hero-subtitle {
             font-size: 21px;
             font-weight: 400;
-            color: #86868b;
+            color: #a1a1a6;
             margin-bottom: 40px;
             line-height: 1.28571;
         }
@@ -52,11 +92,11 @@
             justify-content: center;
             gap: 40px;
             font-size: 17px;
-            color: #515154;
+            color: #a1a1a6;
         }
         
         .contact-grid a {
-            color: #06c;
+            color: #2997ff;
             text-decoration: none;
             transition: opacity 0.3s ease;
         }
@@ -67,12 +107,17 @@
         
         /* Navigation */
         nav {
-            background: rgba(251, 251, 253, 0.8);
+            background: rgba(0, 0, 0, 0.8);
             backdrop-filter: saturate(180%) blur(20px);
             position: sticky;
             top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 99;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: top 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        nav.with-sticky-name {
+            top: 60px;
         }
         
         .nav-container {
@@ -84,7 +129,7 @@
         }
         
         .nav-link {
-            color: #1d1d1f;
+            color: #f5f5f7;
             text-decoration: none;
             padding: 20px 22px;
             font-size: 17px;
@@ -107,7 +152,7 @@
         /* Sections */
         section {
             padding: 80px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         section:last-of-type {
@@ -118,7 +163,7 @@
             font-size: 40px;
             font-weight: 600;
             letter-spacing: -0.005em;
-            color: #1d1d1f;
+            color: #f5f5f7;
             margin-bottom: 60px;
             text-align: center;
             line-height: 1.1;
@@ -126,44 +171,45 @@
         
         /* Content Cards */
         .content-card {
-            background: white;
+            background: #1d1d1f;
             border-radius: 18px;
             padding: 40px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
         }
         
         .content-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.2);
         }
         
         .card-title {
             font-size: 24px;
             font-weight: 600;
-            color: #1d1d1f;
+            color: #f5f5f7;
             margin-bottom: 8px;
             line-height: 1.16667;
         }
         
         .card-subtitle {
             font-size: 19px;
-            color: #06c;
+            color: #2997ff;
             margin-bottom: 4px;
             font-weight: 400;
         }
         
         .card-meta {
             font-size: 17px;
-            color: #86868b;
+            color: #a1a1a6;
             margin-bottom: 24px;
         }
         
         .card-description {
             font-size: 17px;
-            color: #515154;
+            color: #a1a1a6;
             line-height: 1.47059;
         }
         
@@ -182,57 +228,35 @@
             content: '·';
             position: absolute;
             left: 0;
-            color: #86868b;
+            color: #a1a1a6;
             font-size: 24px;
             line-height: 17px;
         }
         
-        /* Skills Grid */
+        /* Skills Grid - Single Section */
         .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        
-        .skill-group {
-            background: white;
-            border-radius: 18px;
-            padding: 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            transition: all 0.3s ease;
-        }
-        
-        .skill-group:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
-        }
-        
-        .skill-group h3 {
-            font-size: 19px;
-            font-weight: 600;
-            color: #1d1d1f;
-            margin-bottom: 20px;
-        }
-        
-        .skill-list {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
+            justify-content: center;
         }
         
         .skill-item {
-            background: #f5f5f7;
-            color: #1d1d1f;
-            padding: 8px 16px;
-            border-radius: 20px;
+            background: #2c2c2e;
+            color: #f5f5f7;
+            padding: 12px 20px;
+            border-radius: 25px;
             font-size: 15px;
-            font-weight: 400;
+            font-weight: 500;
             transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .skill-item:hover {
-            background: #e8e8ed;
+            background: #3a3a3c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(41, 151, 255, 0.2);
+            border-color: #2997ff;
         }
         
         /* Languages Grid */
@@ -243,59 +267,61 @@
         }
         
         .language-card {
-            background: white;
+            background: #1d1d1f;
             border-radius: 18px;
             padding: 32px;
             text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
         }
         
         .language-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.2);
         }
         
         .language-name {
             font-size: 19px;
             font-weight: 600;
-            color: #1d1d1f;
+            color: #f5f5f7;
             margin-bottom: 8px;
         }
         
         .language-level {
             font-size: 15px;
-            color: #86868b;
+            color: #a1a1a6;
             line-height: 1.33337;
         }
         
         /* Publication */
         .publication-card {
-            background: white;
+            background: #1d1d1f;
             border-radius: 18px;
             padding: 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
         }
         
         .publication-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.2);
         }
         
         .publication-title {
             font-size: 21px;
             font-weight: 600;
-            color: #1d1d1f;
+            color: #f5f5f7;
             margin-bottom: 12px;
             line-height: 1.28571;
         }
         
         .publication-details {
             font-size: 17px;
-            color: #515154;
+            color: #a1a1a6;
             line-height: 1.47059;
         }
         
@@ -303,9 +329,9 @@
         footer {
             padding: 60px 0;
             text-align: center;
-            color: #86868b;
+            color: #a1a1a6;
             font-size: 15px;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         /* Responsive Design */
@@ -386,13 +412,42 @@
         /* Focus states */
         .nav-link:focus,
         .contact-grid a:focus {
-            outline: 2px solid #06c;
+            outline: 2px solid #2997ff;
             outline-offset: 2px;
             border-radius: 4px;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const stickyNameBar = document.querySelector('.sticky-name-bar');
+            const heroTitle = document.querySelector('.hero-title');
+            const nav = document.querySelector('nav');
+            const header = document.querySelector('header');
+            
+            function updateStickyElements() {
+                const headerRect = header.getBoundingClientRect();
+                const heroTitleRect = heroTitle.getBoundingClientRect();
+                
+                // When the hero title is about to go out of view
+                if (heroTitleRect.bottom <= 100) {
+                    stickyNameBar.classList.add('visible');
+                    heroTitle.classList.add('shrink');
+                    nav.classList.add('with-sticky-name');
+                } else {
+                    stickyNameBar.classList.remove('visible');
+                    heroTitle.classList.remove('shrink');
+                    nav.classList.remove('with-sticky-name');
+                }
+            }
+            
+            window.addEventListener('scroll', updateStickyElements);
+            window.addEventListener('resize', updateStickyElements);
+        });
+    </script>
 </head>
 <body>
+    <div class="sticky-name-bar">Nachiketh Venkatappa Boin</div>
+    
     <header>
         <div class="container">
             <h1 class="hero-title">Nachiketh Venkatappa Boin</h1>
@@ -442,30 +497,21 @@
             <h2 class="section-title">Skills</h2>
             
             <div class="skills-container">
-                <div class="skill-group">
-                    <h3>Automation & Control</h3>
-                    <div class="skill-list">
-                        <span class="skill-item">MATLAB</span>
-                        <span class="skill-item">Simulink</span>
-                        <span class="skill-item">PLC Programming</span>
-                        <span class="skill-item">Simatic STEP-7</span>
-                        <span class="skill-item">TIA Portal</span>
-                        <span class="skill-item">Rockwell Studio 5000</span>
-                        <span class="skill-item">ISPSoft</span>
-                    </div>
-                </div>
-                
-                <div class="skill-group">
-                    <h3>Development & Design</h3>
-                    <div class="skill-list">
-                        <span class="skill-item">STM32</span>
-                        <span class="skill-item">C++</span>
-                        <span class="skill-item">Python</span>
-                        <span class="skill-item">EPLAN Electric P8</span>
-                        <span class="skill-item">Electrical Commissioning</span>
-                        <span class="skill-item">Maintenance</span>
-                    </div>
-                </div>
+                <span class="skill-item">MATLAB</span>
+                <span class="skill-item">Simulink</span>
+                <span class="skill-item">PLC Programming</span>
+                <span class="skill-item">Simatic STEP-7</span>
+                <span class="skill-item">TIA Portal</span>
+                <span class="skill-item">Rockwell Studio 5000</span>
+                <span class="skill-item">ISPSoft</span>
+                <span class="skill-item">STM32</span>
+                <span class="skill-item">C++</span>
+                <span class="skill-item">Python</span>
+                <span class="skill-item">EPLAN Electric P8</span>
+                <span class="skill-item">Electrical Commissioning</span>
+                <span class="skill-item">Maintenance</span>
+                <span class="skill-item">SAP S/4HANA</span>
+                <span class="skill-item">SAP ERP</span>
             </div>
         </section>
 
