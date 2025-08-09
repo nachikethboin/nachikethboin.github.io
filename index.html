@@ -3,145 +3,589 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Nachiketh Venkatappa Boin - Electrical Automation Engineer</title>
+    <title>Nachiketh Venkatappa Boin</title>
     <style>
-        body {font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #222;}
-        header {background: #005f73; color: white; padding: 2rem 1rem; text-align: center;}
-        header h1 {margin: 0 0 0.5rem 0;}
-        section {max-width: 900px; margin: 2rem auto; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 0 10px #ccc;}
-        h2 {color: #0a9396; margin-top: 0;}
-        ul {list-style-type: none; padding-left: 0;}
-        ul li {margin-bottom: 0.7rem;}
-        a {color: #005f73; text-decoration: none;}
-        a:hover {text-decoration: underline;}
-        .contact {text-align: center; margin-top: 1rem;}
-        footer {text-align: center; padding: 1rem 0; background: #94d2bd; margin-top: 2rem;}
-        @media (max-width: 600px) {
-            section {padding: 1rem;}
-            header {padding: 1.2rem 0.5rem;}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            line-height: 1.47059;
+            color: #1d1d1f;
+            background: #fbfbfd;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(251, 251, 253, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-title {
+            font-size: 56px;
+            font-weight: 600;
+            letter-spacing: -0.005em;
+            color: #1d1d1f;
+            margin-bottom: 8px;
+            line-height: 1.07143;
+        }
+        
+        .hero-subtitle {
+            font-size: 21px;
+            font-weight: 400;
+            color: #86868b;
+            margin-bottom: 40px;
+            line-height: 1.28571;
+        }
+        
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            font-size: 17px;
+            color: #515154;
+        }
+        
+        .contact-grid a {
+            color: #06c;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .contact-grid a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Navigation */
+        nav {
+            background: rgba(251, 251, 253, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            max-width: 980px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            padding: 0 22px;
+        }
+        
+        .nav-link {
+            color: #1d1d1f;
+            text-decoration: none;
+            padding: 20px 22px;
+            font-size: 17px;
+            font-weight: 400;
+            transition: opacity 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 22px;
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        section:last-of-type {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            font-size: 40px;
+            font-weight: 600;
+            letter-spacing: -0.005em;
+            color: #1d1d1f;
+            margin-bottom: 60px;
+            text-align: center;
+            line-height: 1.1;
+        }
+        
+        /* Content Cards */
+        .content-card {
+            background: white;
+            border-radius: 18px;
+            padding: 40px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .card-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 8px;
+            line-height: 1.16667;
+        }
+        
+        .card-subtitle {
+            font-size: 19px;
+            color: #06c;
+            margin-bottom: 4px;
+            font-weight: 400;
+        }
+        
+        .card-meta {
+            font-size: 17px;
+            color: #86868b;
+            margin-bottom: 24px;
+        }
+        
+        .card-description {
+            font-size: 17px;
+            color: #515154;
+            line-height: 1.47059;
+        }
+        
+        .card-description ul {
+            list-style: none;
+            margin-top: 16px;
+        }
+        
+        .card-description li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .card-description li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            color: #86868b;
+            font-size: 24px;
+            line-height: 17px;
+        }
+        
+        /* Skills Grid */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-group {
+            background: white;
+            border-radius: 18px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-group:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .skill-group h3 {
+            font-size: 19px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 20px;
+        }
+        
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .skill-item {
+            background: #f5f5f7;
+            color: #1d1d1f;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 15px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            background: #e8e8ed;
+        }
+        
+        /* Languages Grid */
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .language-card {
+            background: white;
+            border-radius: 18px;
+            padding: 32px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+        
+        .language-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .language-name {
+            font-size: 19px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 8px;
+        }
+        
+        .language-level {
+            font-size: 15px;
+            color: #86868b;
+            line-height: 1.33337;
+        }
+        
+        /* Publication */
+        .publication-card {
+            background: white;
+            border-radius: 18px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+        
+        .publication-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .publication-title {
+            font-size: 21px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 12px;
+            line-height: 1.28571;
+        }
+        
+        .publication-details {
+            font-size: 17px;
+            color: #515154;
+            line-height: 1.47059;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            color: #86868b;
+            font-size: 15px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 40px;
+            }
+            
+            .hero-subtitle {
+                font-size: 19px;
+            }
+            
+            .contact-grid {
+                flex-direction: column;
+                gap: 16px;
+                align-items: center;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-link {
+                padding: 16px 16px;
+                font-size: 15px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 32px;
+                margin-bottom: 40px;
+            }
+            
+            .content-card,
+            .skill-group,
+            .language-card,
+            .publication-card {
+                padding: 32px 24px;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .nav-link {
+                padding: 12px 12px;
+                font-size: 15px;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .languages-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Focus states */
+        .nav-link:focus,
+        .contact-grid a:focus {
+            outline: 2px solid #06c;
+            outline-offset: 2px;
+            border-radius: 4px;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Nachiketh Venkatappa Boin</h1>
-        <p>Electrical Automation Engineer | Automation &amp; Maintenance Specialist</p>
-        <div class="contact">
-            <p>Phone: +49 16095882461 / +91 7337619145<br>
-            Email: <a href="mailto:nachiboin@gmail.com">nachiboin@gmail.com</a></p>
+        <div class="container">
+            <h1 class="hero-title">Nachiketh Venkatappa Boin</h1>
+            <p class="hero-subtitle">Electrical Automation Engineer</p>
+            <div class="contact-grid">
+                <div>+49 16095882461 / +91 7337619145</div>
+                <div><a href="mailto:nachiboin@gmail.com">nachiboin@gmail.com</a></div>
+            </div>
         </div>
     </header>
 
-    <section>
-        <h2>Education</h2>
-        <ul>
-            <li>
-                <strong>Master of Science in Electrical Engineering and Information Technology: Automation</strong><br>
-                Deggendorf Institute of Technology, Germany<br>
-                March 2025 – Present
-            </li>
-            <li>
-                <strong>Bachelor of Engineering in Electrical and Electronics (CGPA: 8.04/10.00)</strong><br>
-                BMS Institute of Technology and Management, Bengaluru, India<br>
-                Aug 2019 – June 2023
-            </li>
-        </ul>
-    </section>
+    <nav>
+        <div class="nav-container">
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#publication" class="nav-link">Publication</a>
+            <a href="#languages" class="nav-link">Languages</a>
+        </div>
+    </nav>
 
-    <section>
-        <h2>Skills</h2>
-        <ul>
-            <li>MATLAB, Simulink, PLC Programming (Simatic STEP-7, TIA Portal, Rockwell Studio 5000, ISPSoft)</li>
-            <li>STM32, C++, Python</li>
-            <li>EPLAN Electric P8, Electrical Commissioning &amp; Maintenance</li>
-        </ul>
-    </section>
+    <div class="container">
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="content-card">
+                <h3 class="card-title">Master of Science in Electrical Engineering and Information Technology</h3>
+                <div class="card-subtitle">Deggendorf Institute of Technology</div>
+                <div class="card-meta">March 2025 – Present · Germany</div>
+                <div class="card-description">
+                    Specializing in Automation systems and advanced electrical engineering concepts.
+                </div>
+            </div>
 
-    <section>
-        <h2>Professional Experience</h2>
-        <ul>
-            <li>
-                <strong>Assistant Manager – Electrical Automation and Maintenance</strong><br>
-                JSW Steel, Dolvi, Navi Mumbai<br>
-                June 2023 – Sep 2024<br>
-                <ul>
-                    <li>Worked as Automation Engineer and Shift In charge at SMS-2 Slab Caster Department, JSW Steel Dolvi Works.</li>
-                    <li>Part of commissioning projects such as EMS (Electromagnetic Stirrer) and Slab Grinder.</li>
-                    <li>Responsibilities included enabling automation, testing of equipment, and solving issues with cross-functional teams.</li>
-                    <li>Implemented Kaizen projects: improving dummy bar operation, avoiding unplanned delay in Ladle Cover manipulator, reducing profinet communication breakdowns.</li>
-                    <li>Led electrical maintenance activities and troubleshooting during casting operations.</li>
-                    <li>Joined as Graduate Engineer Trainee; underwent training in PLC programming, Electrical Drives, and Switchgear Maintenance.</li>
-                </ul>
-            </li>
-            <li>
-                <strong>Intern Trainee – Engineering (Electrical)</strong><br>
-                Bharat Heavy Electricals Limited (BHEL), Bengaluru<br>
-                March 2023<br>
-                <ul>
-                    <li>Exposure to Coal and Ash Handling plant equipment and their automation.</li>
-                    <li>Coded logic for Allen Bradley PLCs and designed HMI with Rockwell Studio 5000 software.</li>
-                    <li>Simulated PLCs using Studio 5000 Logix Emulate.</li>
-                </ul>
-            </li>
-            <li>
-                <strong>Software Engineer Intern</strong><br>
-                EMO.energy, Bengaluru<br>
-                Jan 2023 – Feb 2023<br>
-                <ul>
-                    <li>Worked on firmware design and modeling for Li-ion 2 &amp; 4 Wheeler Battery BMS and Motor Controller Systems.</li>
-                    <li>Simulated Field Oriented Control (FOC) of PMSM in MATLAB.</li>
-                    <li>Developed OLED display drivers using STM32 and CubeID.</li>
-                </ul>
-            </li>
-        </ul>
-    </section>
+            <div class="content-card">
+                <h3 class="card-title">Bachelor of Engineering in Electrical and Electronics</h3>
+                <div class="card-subtitle">BMS Institute of Technology and Management</div>
+                <div class="card-meta">Aug 2019 – June 2023 · Bengaluru, India</div>
+                <div class="card-description">
+                    CGPA: 8.04/10.00 · Graduated with distinction in electrical and electronics engineering.
+                </div>
+            </div>
+        </section>
 
-    <section>
-        <h2>Projects</h2>
-        <ul>
-            <li>
-                <strong>PLC based Fault Detection and Protection of a Three Phase Induction Motor</strong> &mdash; Dec 2022 – May 2023<br>
-                <ul>
-                    <li>Device to detect faults due to variation in voltage, current, and temperature, using Delta DVP-14SS2 PLC.</li>
-                    <li>Programmed ladder logic, designed HMI, and simulated results in ISPSoft and DOPSoft.</li>
-                    <li>Implemented hardware using overload, OV/UV and auxiliary relays, RTD sensor, and interfaced with PLC.</li>
-                </ul>
-            </li>
-            <li>
-                <strong>Simulation of Electric Vehicle (EV) &amp; Estimation of State of Charge (SOC)</strong> &mdash; June 2022 – Oct 2022<br>
-                <ul>
-                    <li>Developed a MATLAB/Simulink model for an electric vehicle and SOC estimation.</li>
-                    <li>Analyzed performance parameters like speed, SOC, and current across different drive cycles.</li>
-                    <li>Tested with varying motor power and vehicle body parameters.</li>
-                </ul>
-            </li>
-        </ul>
-    </section>
+        <section id="skills">
+            <h2 class="section-title">Skills</h2>
+            
+            <div class="skills-container">
+                <div class="skill-group">
+                    <h3>Automation & Control</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">MATLAB</span>
+                        <span class="skill-item">Simulink</span>
+                        <span class="skill-item">PLC Programming</span>
+                        <span class="skill-item">Simatic STEP-7</span>
+                        <span class="skill-item">TIA Portal</span>
+                        <span class="skill-item">Rockwell Studio 5000</span>
+                        <span class="skill-item">ISPSoft</span>
+                    </div>
+                </div>
+                
+                <div class="skill-group">
+                    <h3>Development & Design</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">STM32</span>
+                        <span class="skill-item">C++</span>
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">EPLAN Electric P8</span>
+                        <span class="skill-item">Electrical Commissioning</span>
+                        <span class="skill-item">Maintenance</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section>
-        <h2>Publication</h2>
-        <ul>
-            <li>
-                Co-authored: <em>“PLC based Fault Detection and Protection of a Three Phase Induction Motor”</em><br>
-                Grenze International Journal of Engineering &amp; Technology (GIJET), 2024, Vol 10.<br>
-                With Prof. Manjula BK.
-            </li>
-        </ul>
-    </section>
+        <section id="experience">
+            <h2 class="section-title">Experience</h2>
+            
+            <div class="content-card">
+                <h3 class="card-title">Assistant Manager – Electrical Automation and Maintenance</h3>
+                <div class="card-subtitle">JSW Steel</div>
+                <div class="card-meta">June 2023 – Sep 2024 · Dolvi, Navi Mumbai</div>
+                <div class="card-description">
+                    Automation Engineer and Shift In charge at SMS-2 Slab Caster Department.
+                    <ul>
+                        <li>Commissioned EMS (Electromagnetic Stirrer) and Slab Grinder projects</li>
+                        <li>Enabled automation, tested equipment, and solved issues with cross-functional teams</li>
+                        <li>Implemented Kaizen projects improving dummy bar operation and reducing communication breakdowns</li>
+                        <li>Led electrical maintenance activities and troubleshooting during casting operations</li>
+                        <li>Trained in PLC programming, Electrical Drives, and Switchgear Maintenance</li>
+                    </ul>
+                </div>
+            </div>
 
-    <section>
-        <h2>Languages</h2>
-        <ul>
-            <li>English (Full professional proficiency, TOEFL iBT-99)</li>
-            <li>German (Beginner level proficiency)</li>
-            <li>Hindi (Full professional proficiency)</li>
-            <li>Kannada (Native or bilingual proficiency)</li>
-        </ul>
-    </section>
+            <div class="content-card">
+                <h3 class="card-title">Intern Trainee – Engineering (Electrical)</h3>
+                <div class="card-subtitle">Bharat Heavy Electricals Limited (BHEL)</div>
+                <div class="card-meta">March 2023 · Bengaluru</div>
+                <div class="card-description">
+                    <ul>
+                        <li>Gained exposure to Coal and Ash Handling plant equipment and automation</li>
+                        <li>Coded logic for Allen Bradley PLCs and designed HMI with Rockwell Studio 5000</li>
+                        <li>Simulated PLCs using Studio 5000 Logix Emulate</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h3 class="card-title">Software Engineer Intern</h3>
+                <div class="card-subtitle">EMO.energy</div>
+                <div class="card-meta">Jan 2023 – Feb 2023 · Bengaluru</div>
+                <div class="card-description">
+                    <ul>
+                        <li>Worked on firmware design for Li-ion Battery BMS and Motor Controller Systems</li>
+                        <li>Simulated Field Oriented Control (FOC) of PMSM in MATLAB</li>
+                        <li>Developed OLED display drivers using STM32 and CubeID</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">Projects</h2>
+            
+            <div class="content-card">
+                <h3 class="card-title">PLC based Fault Detection and Protection of a Three Phase Induction Motor</h3>
+                <div class="card-meta">Dec 2022 – May 2023</div>
+                <div class="card-description">
+                    <ul>
+                        <li>Developed fault detection system using Delta DVP-14SS2 PLC for voltage, current, and temperature variations</li>
+                        <li>Programmed ladder logic, designed HMI, and simulated results in ISPSoft and DOPSoft</li>
+                        <li>Implemented hardware with overload, OV/UV and auxiliary relays, RTD sensor interfaced with PLC</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h3 class="card-title">Simulation of Electric Vehicle & Estimation of State of Charge</h3>
+                <div class="card-meta">June 2022 – Oct 2022</div>
+                <div class="card-description">
+                    <ul>
+                        <li>Developed MATLAB/Simulink model for electric vehicle and SOC estimation</li>
+                        <li>Analyzed performance parameters like speed, SOC, and current across different drive cycles</li>
+                        <li>Tested with varying motor power and vehicle body parameters</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="publication">
+            <h2 class="section-title">Publication</h2>
+            
+            <div class="publication-card">
+                <h3 class="publication-title">"PLC based Fault Detection and Protection of a Three Phase Induction Motor"</h3>
+                <div class="publication-details">
+                    Grenze International Journal of Engineering & Technology (GIJET), 2024, Vol 10.<br>
+                    Co-authored with Prof. Manjula BK.
+                </div>
+            </div>
+        </section>
+
+        <section id="languages">
+            <h2 class="section-title">Languages</h2>
+            
+            <div class="languages-grid">
+                <div class="language-card">
+                    <div class="language-name">English</div>
+                    <div class="language-level">Full professional proficiency<br>TOEFL iBT-99</div>
+                </div>
+                
+                <div class="language-card">
+                    <div class="language-name">German</div>
+                    <div class="language-level">Beginner level proficiency</div>
+                </div>
+                
+                <div class="language-card">
+                    <div class="language-name">Hindi</div>
+                    <div class="language-level">Full professional proficiency</div>
+                </div>
+                
+                <div class="language-card">
+                    <div class="language-name">Kannada</div>
+                    <div class="language-level">Native proficiency</div>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <footer>
-        <p>© 2025 Nachiketh Venkatappa Boin</p>
+        <div class="container">
+            <p>© 2025 Nachiketh Venkatappa Boin</p>
+        </div>
     </footer>
 </body>
 </html>
-index.html
