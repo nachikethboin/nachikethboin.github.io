@@ -35,23 +35,185 @@
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
+            right: 48px;
             background: rgba(0, 0, 0, 0.95);
             backdrop-filter: saturate(180%) blur(20px);
-            padding: 16px 0 16px 0;
+            padding: 12px 0;
             text-align: center;
             z-index: 1000;
-            font-size: 21px;
+            font-size: 18px;
             font-weight: 600;
             color: #f5f5f7;
             opacity: 0;
             transform: translateY(-100%);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .sticky-name-bar.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+        
+        /* Hamburger Button */
+        .hamburger-button {
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 1001;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: saturate(180%) blur(20px);
+            border: none;
+            border-radius: 0;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 48px;
+            height: 48px;
+        }
+        
+        .hamburger-button:hover {
+            background: rgba(41, 151, 255, 0.15);
+            border-color: rgba(41, 151, 255, 0.3);
+        }
+        
+        .hamburger-line {
+            width: 20px;
+            height: 2px;
+            background: #f5f5f7;
+            margin: 2px 0;
+            transition: all 0.3s ease;
+            border-radius: 1px;
+        }
+        
+        .hamburger-button.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(4px, 4px);
+        }
+        
+        .hamburger-button.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger-button.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(4px, -4px);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 320px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: saturate(180%) blur(20px);
+            z-index: 1000;
+            transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding: 80px 30px 30px;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        /* Contact Section in Menu */
+        .menu-contact {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .menu-contact-title {
+            font-size: 21px;
+            font-weight: 600;
+            color: #f5f5f7;
+            margin-bottom: 20px;
+        }
+        
+        .menu-contact-item {
+            margin-bottom: 16px;
+            font-size: 16px;
+            color: #a1a1a6;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .menu-contact-item .contact-icon {
+            font-size: 18px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .menu-contact-item a {
+            color: #2997ff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-contact-item a:hover {
+            opacity: 0.8;
+            transform: translateX(2px);
+        }
+        
+        /* Menu Navigation */
+        .menu-nav {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .menu-nav-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            padding: 16px 0;
+            font-size: 19px;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .menu-nav-link:hover {
+            color: #2997ff;
+            padding-left: 8px;
+        }
+        
+        .menu-nav-link:last-child {
+            border-bottom: none;
+        }
+        
+        /* Menu Overlay */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Hide original navigation */
+        nav {
+            display: none;
         }
         
         .hero-title {
@@ -69,15 +231,6 @@
             opacity: 0.3;
         }
         
-        .hero-title {
-            font-size: 56px;
-            font-weight: 600;
-            letter-spacing: -0.005em;
-            color: #f5f5f7;
-            margin-bottom: 8px;
-            line-height: 1.07143;
-        }
-        
         .hero-subtitle {
             font-size: 21px;
             font-weight: 400;
@@ -92,70 +245,31 @@
             gap: 40px;
             font-size: 17px;
             color: #a1a1a6;
+            align-items: center;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .contact-icon {
+            font-size: 18px;
         }
         
         .contact-grid a {
             color: #2997ff;
             text-decoration: none;
-            transition: opacity 0.3s ease;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
         .contact-grid a:hover {
             opacity: 0.8;
-        }
-        
-        /* Navigation */
-        nav {
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: saturate(180%) blur(20px);
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        
-        nav.with-sticky-name {
-            top: 48px;
-            background: rgba(0, 0, 0, 0.95);
-            margin-top: 0;
-        }
-        
-        /* Navigation */
-        nav {
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: saturate(180%) blur(20px);
-            position: sticky;
-            top: 0;
-            z-index: 99;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            transition: top 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        
-        nav.with-sticky-name {
-            top: 60px;
-        }
-        
-        .nav-container {
-            max-width: 980px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            padding: 0 22px;
-        }
-        
-        .nav-link {
-            color: #f5f5f7;
-            text-decoration: none;
-            padding: 20px 22px;
-            font-size: 17px;
-            font-weight: 400;
-            transition: opacity 0.3s ease;
-            white-space: nowrap;
-        }
-        
-        .nav-link:hover {
-            opacity: 0.8;
+            transform: translateY(-1px);
         }
         
         /* Main Container */
@@ -169,14 +283,14 @@
         
         /* Sections */
         section {
-            padding: 140px 0 80px 0;
+            padding: 80px 0 60px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             z-index: 1;
         }
         
         section:first-of-type {
-            padding-top: 80px;
+            padding-top: 20px;
         }
         
         section:last-of-type {
@@ -188,7 +302,7 @@
             font-weight: 600;
             letter-spacing: -0.005em;
             color: #f5f5f7;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             text-align: center;
             line-height: 1.1;
             position: relative;
@@ -261,7 +375,7 @@
             line-height: 17px;
         }
         
-        /* Skills Grid - Single Section */
+        /* Skills Grid */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
@@ -386,27 +500,20 @@
                 align-items: center;
             }
             
-            .nav-container {
-                flex-wrap: wrap;
+            .contact-item {
                 justify-content: center;
             }
             
-            .nav-link {
-                padding: 16px 16px;
-                font-size: 15px;
-            }
-            
             section {
-                padding: 60px 0;
+                padding: 50px 0 40px 0;
             }
             
             .section-title {
                 font-size: 32px;
-                margin-bottom: 40px;
+                margin-bottom: 30px;
             }
             
             .content-card,
-            .skill-group,
             .language-card,
             .publication-card {
                 padding: 32px 24px;
@@ -426,17 +533,16 @@
                 font-size: 28px;
             }
             
-            .nav-link {
-                padding: 12px 12px;
-                font-size: 15px;
-            }
-            
             .skills-container {
-                grid-template-columns: 1fr;
+                justify-content: flex-start;
             }
             
             .languages-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .mobile-menu {
+                width: 100%;
             }
         }
         
@@ -446,7 +552,9 @@
         }
         
         /* Focus states */
-        .nav-link:focus,
+        .hamburger-button:focus,
+        .menu-nav-link:focus,
+        .menu-contact-item a:focus,
         .contact-grid a:focus {
             outline: 2px solid #2997ff;
             outline-offset: 2px;
@@ -457,25 +565,59 @@
         document.addEventListener('DOMContentLoaded', function() {
             const stickyNameBar = document.querySelector('.sticky-name-bar');
             const heroTitle = document.querySelector('.hero-title');
-            const nav = document.querySelector('nav');
             const header = document.querySelector('header');
+            const hamburgerButton = document.querySelector('.hamburger-button');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const menuOverlay = document.querySelector('.menu-overlay');
+            const menuLinks = document.querySelectorAll('.menu-nav-link');
             
+            // Sticky header functionality
             function updateStickyElements() {
-                const headerRect = header.getBoundingClientRect();
                 const heroTitleRect = heroTitle.getBoundingClientRect();
                 
-                // When the hero title is about to go out of view
                 if (heroTitleRect.bottom <= 100) {
                     stickyNameBar.classList.add('visible');
                     heroTitle.classList.add('shrink');
-                    nav.classList.add('with-sticky-name');
                 } else {
                     stickyNameBar.classList.remove('visible');
                     heroTitle.classList.remove('shrink');
-                    nav.classList.remove('with-sticky-name');
                 }
             }
             
+            // Hamburger menu functionality
+            function toggleMenu() {
+                hamburgerButton.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+            }
+            
+            function closeMenu() {
+                hamburgerButton.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+            
+            // Event listeners
+            hamburgerButton.addEventListener('click', toggleMenu);
+            menuOverlay.addEventListener('click', closeMenu);
+            
+            // Close menu when clicking on a navigation link
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    setTimeout(closeMenu, 100); // Small delay for smooth scrolling
+                });
+            });
+            
+            // Close menu on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                    closeMenu();
+                }
+            });
+            
+            // Scroll listeners
             window.addEventListener('scroll', updateStickyElements);
             window.addEventListener('resize', updateStickyElements);
         });
@@ -484,27 +626,68 @@
 <body>
     <div class="sticky-name-bar">Nachiketh Venkatappa Boin</div>
     
+    <!-- Hamburger Button -->
+    <button class="hamburger-button" aria-label="Toggle navigation menu">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+    </button>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="menu-contact">
+            <div class="menu-contact-title">Contact Me</div>
+            <div class="menu-contact-item">
+                <span class="contact-icon">📱</span>
+                <span>+49 16095882461</span>
+            </div>
+            <div class="menu-contact-item">
+                <span class="contact-icon">📱</span>
+                <span>+91 7337619145</span>
+            </div>
+            <div class="menu-contact-item">
+                <span class="contact-icon">📧</span>
+                <a href="mailto:nachiboin@gmail.com">nachiboin@gmail.com</a>
+            </div>
+            <div class="menu-contact-item">
+                <span class="contact-icon">💼</span>
+                <a href="https://www.linkedin.com/in/nachiketh-v-boin-3722a2226" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+            </div>
+        </div>
+        
+        <nav class="menu-nav">
+            <a href="#education" class="menu-nav-link">Education</a>
+            <a href="#skills" class="menu-nav-link">Skills</a>
+            <a href="#experience" class="menu-nav-link">Experience</a>
+            <a href="#projects" class="menu-nav-link">Projects</a>
+            <a href="#publication" class="menu-nav-link">Publication</a>
+            <a href="#languages" class="menu-nav-link">Languages</a>
+        </nav>
+    </div>
+    
+    <!-- Menu Overlay -->
+    <div class="menu-overlay"></div>
+    
     <header>
         <div class="container">
             <h1 class="hero-title">Nachiketh Venkatappa Boin</h1>
             <p class="hero-subtitle">Electrical Automation Engineer</p>
             <div class="contact-grid">
-                <div>+49 16095882461 / +91 7337619145</div>
-                <div><a href="mailto:nachiboin@gmail.com">nachiboin@gmail.com</a></div>
+                <div class="contact-item">
+                    <span class="contact-icon">📱</span>
+                    <span>+49 16095882461 / +91 7337619145</span>
+                </div>
+                <a href="mailto:nachiboin@gmail.com" class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <span>nachiboin@gmail.com</span>
+                </a>
+                <a href="https://www.linkedin.com/in/nachiketh-v-boin-3722a2226" target="_blank" rel="noopener noreferrer" class="contact-item">
+                    <span class="contact-icon">💼</span>
+                    <span>LinkedIn Profile</span>
+                </a>
             </div>
         </div>
     </header>
-
-    <nav>
-        <div class="nav-container">
-            <a href="#education" class="nav-link">Education</a>
-            <a href="#skills" class="nav-link">Skills</a>
-            <a href="#experience" class="nav-link">Experience</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#publication" class="nav-link">Publication</a>
-            <a href="#languages" class="nav-link">Languages</a>
-        </div>
-    </nav>
 
     <div class="container">
         <section id="education">
