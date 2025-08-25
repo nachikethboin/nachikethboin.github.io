@@ -402,7 +402,149 @@
             border-color: #2997ff;
         }
         
-        /* Languages Grid */
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .blog-card {
+            background: #1d1d1f;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .blog-thumbnail {
+            height: 200px;
+            background: linear-gradient(135deg, #2c2c2e 0%, #1d1d1f 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .blog-thumbnail-placeholder {
+            width: 80px;
+            height: 80px;
+            background: rgba(41, 151, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(41, 151, 255, 0.3);
+        }
+        
+        .blog-icon {
+            font-size: 32px;
+            opacity: 0.8;
+        }
+        
+        .blog-content {
+            padding: 32px;
+        }
+        
+        .blog-title {
+            font-size: 21px;
+            font-weight: 600;
+            color: #f5f5f7;
+            margin-bottom: 12px;
+            line-height: 1.28571;
+        }
+        
+        .blog-meta {
+            font-size: 15px;
+            color: #a1a1a6;
+            margin-bottom: 16px;
+        }
+        
+        .blog-excerpt {
+            font-size: 17px;
+            color: #a1a1a6;
+            line-height: 1.47059;
+            margin-bottom: 20px;
+        }
+        
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+        
+        .blog-tag {
+            background: #2c2c2e;
+            color: #f5f5f7;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .blog-link {
+            color: #2997ff;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-link:hover {
+            opacity: 0.8;
+            transform: translateX(4px);
+        }
+        
+        .blog-link-icon {
+            font-size: 16px;
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-link:hover .blog-link-icon {
+            transform: translateX(4px);
+        }
+        
+        .blog-footer {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .blog-view-all {
+            color: #2997ff;
+            text-decoration: none;
+            font-size: 19px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            border: 2px solid rgba(41, 151, 255, 0.3);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            background: rgba(41, 151, 255, 0.05);
+        }
+        
+        .blog-view-all:hover {
+            background: rgba(41, 151, 255, 0.1);
+            border-color: rgba(41, 151, 255, 0.5);
+            transform: translateY(-2px);
+        }
         .languages-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -474,6 +616,62 @@
             line-height: 1.47059;
         }
         
+        .publication-link,
+        .project-link {
+            color: #f5f5f7;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .publication-link:hover,
+        .project-link:hover {
+            color: #2997ff;
+        }
+        
+        .publication-link::after,
+        .project-link::after {
+            content: '↗';
+            font-size: 16px;
+            margin-left: 8px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .publication-link:hover::after,
+        .project-link:hover::after {
+            opacity: 1;
+        }
+        
+        .show-publication-link,
+        .show-project-link {
+            color: #2997ff;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .show-publication-link:hover,
+        .show-project-link:hover {
+            opacity: 0.8;
+            transform: translateX(4px);
+        }
+        
+        .show-link-icon {
+            font-size: 16px;
+            transition: transform 0.3s ease;
+        }
+        
+        .show-publication-link:hover .show-link-icon,
+        .show-project-link:hover .show-link-icon {
+            transform: translateX(4px);
+        }
+        
         /* Footer */
         footer {
             padding: 60px 0;
@@ -540,6 +738,14 @@
                 grid-template-columns: 1fr;
             }
             
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-content {
+                padding: 24px;
+            }
+            
             .mobile-menu {
                 width: 100%;
             }
@@ -560,67 +766,6 @@
             border-radius: 4px;
         }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const stickyNameBar = document.querySelector('.sticky-name-bar');
-            const heroTitle = document.querySelector('.hero-title');
-            const header = document.querySelector('header');
-            const hamburgerButton = document.querySelector('.hamburger-button');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const menuOverlay = document.querySelector('.menu-overlay');
-            const menuLinks = document.querySelectorAll('.menu-nav-link');
-            
-            // Sticky header functionality
-            function updateStickyElements() {
-                const heroTitleRect = heroTitle.getBoundingClientRect();
-                
-                if (heroTitleRect.bottom <= 100) {
-                    stickyNameBar.classList.add('visible');
-                    heroTitle.classList.add('shrink');
-                } else {
-                    stickyNameBar.classList.remove('visible');
-                    heroTitle.classList.remove('shrink');
-                }
-            }
-            
-            // Hamburger menu functionality
-            function toggleMenu() {
-                hamburgerButton.classList.toggle('active');
-                mobileMenu.classList.toggle('active');
-                menuOverlay.classList.toggle('active');
-                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
-            }
-            
-            function closeMenu() {
-                hamburgerButton.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                menuOverlay.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-            
-            // Event listeners
-            hamburgerButton.addEventListener('click', toggleMenu);
-            menuOverlay.addEventListener('click', closeMenu);
-            
-            // Close menu when clicking on a navigation link
-            menuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    setTimeout(closeMenu, 100); // Small delay for smooth scrolling
-                });
-            });
-            
-            // Close menu on escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-                    closeMenu();
-                }
-            });
-            
-            // Scroll listeners
-            window.addEventListener('scroll', updateStickyElements);
-            window.addEventListener('resize', updateStickyElements);
-        });
-    </script>
 </head>
 <body>
     <div class="sticky-name-bar">Nachiketh Venkatappa Boin</div>
@@ -660,6 +805,7 @@
             <a href="#experience" class="menu-nav-link">Experience</a>
             <a href="#projects" class="menu-nav-link">Projects</a>
             <a href="#publication" class="menu-nav-link">Publication</a>
+            <a href="#blog" class="menu-nav-link">Blog</a>
             <a href="#languages" class="menu-nav-link">Languages</a>
         </nav>
     </div>
@@ -783,7 +929,11 @@
             <h2 class="section-title">Projects</h2>
             
             <div class="content-card">
-                <h3 class="card-title">PLC based Fault Detection and Protection of a Three Phase Induction Motor</h3>
+                <h3 class="card-title">
+                    <a href="https://www.researchgate.net/publication/383908806_PLC_based_Fault_Detection_and_Protection_of_a_Three_Phase_Induction_Motor" target="_blank" rel="noopener noreferrer" class="project-link">
+                        PLC based Fault Detection and Protection of a Three Phase Induction Motor
+                    </a>
+                </h3>
                 <div class="card-meta">Dec 2022 – May 2023</div>
                 <div class="card-description">
                     <ul>
@@ -791,11 +941,19 @@
                         <li>Programmed ladder logic, designed HMI, and simulated results in ISPSoft and DOPSoft</li>
                         <li>Implemented hardware with overload, OV/UV and auxiliary relays, RTD sensor interfaced with PLC</li>
                     </ul>
+                    <a href="https://www.researchgate.net/publication/383908806_PLC_based_Fault_Detection_and_Protection_of_a_Three_Phase_Induction_Motor" target="_blank" rel="noopener noreferrer" class="show-project-link">
+                        Show Project
+                        <span class="show-link-icon">→</span>
+                    </a>
                 </div>
             </div>
 
             <div class="content-card">
-                <h3 class="card-title">Simulation of Electric Vehicle & Estimation of State of Charge</h3>
+                <h3 class="card-title">
+                    <a href="https://github.com/nachikethboin/SOC-Estimation-of-Electric-Vehicle-EV-in-MATLABa" target="_blank" rel="noopener noreferrer" class="project-link">
+                        Simulation of Electric Vehicle & Estimation of State of Charge
+                    </a>
+                </h3>
                 <div class="card-meta">June 2022 – Oct 2022</div>
                 <div class="card-description">
                     <ul>
@@ -803,6 +961,10 @@
                         <li>Analyzed performance parameters like speed, SOC, and current across different drive cycles</li>
                         <li>Tested with varying motor power and vehicle body parameters</li>
                     </ul>
+                    <a href="https://github.com/nachikethboin/SOC-Estimation-of-Electric-Vehicle-EV-in-MATLABa" target="_blank" rel="noopener noreferrer" class="show-project-link">
+                        Show Project
+                        <span class="show-link-icon">→</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -811,11 +973,57 @@
             <h2 class="section-title">Publication</h2>
             
             <div class="publication-card">
-                <h3 class="publication-title">"PLC based Fault Detection and Protection of a Three Phase Induction Motor"</h3>
+                <h3 class="publication-title">
+                    <a href="https://www.researchgate.net/publication/383908806_PLC_based_Fault_Detection_and_Protection_of_a_Three_Phase_Induction_Motor" target="_blank" rel="noopener noreferrer" class="publication-link">
+                        "PLC based Fault Detection and Protection of a Three Phase Induction Motor"
+                    </a>
+                </h3>
                 <div class="publication-details">
                     Grenze International Journal of Engineering & Technology (GIJET), 2024, Vol 10.<br>
                     Co-authored with Prof. Manjula BK.
                 </div>
+                <a href="https://www.researchgate.net/publication/383908806_PLC_based_Fault_Detection_and_Protection_of_a_Three_Phase_Induction_Motor" target="_blank" rel="noopener noreferrer" class="show-publication-link">
+                    Show Publication
+                    <span class="show-link-icon">→</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="blog">
+            <h2 class="section-title">Latest Blog Posts</h2>
+            
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-thumbnail">
+                        <div class="blog-thumbnail-placeholder">
+                            <span class="blog-icon">🔧</span>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Simple Latch Circuit in Siemens TIA Portal V16</h3>
+                        <div class="blog-meta">August 2025</div>
+                        <div class="blog-excerpt">
+                            A comprehensive guide to creating and implementing a basic latch/unlatch circuit using Siemens TIA Portal V16. Learn PLC programming fundamentals including hardware configuration, IP addressing, ladder logic programming, and real-time monitoring techniques.
+                        </div>
+                        <div class="blog-tags">
+                            <span class="blog-tag">PLC Programming</span>
+                            <span class="blog-tag">Siemens</span>
+                            <span class="blog-tag">TIA Portal</span>
+                            <span class="blog-tag">Automation</span>
+                        </div>
+                        <a href="https://nachiboin.blogspot.com/2025/08/simple-latch-circuit-in-siemens-tia.html" target="_blank" rel="noopener noreferrer" class="blog-link">
+                            Read Full Article
+                            <span class="blog-link-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="blog-footer">
+                <a href="https://nachiboin.blogspot.com/" target="_blank" rel="noopener noreferrer" class="blog-view-all">
+                    View All Blog Posts
+                    <span class="blog-link-icon">→</span>
+                </a>
             </div>
         </section>
 
@@ -851,5 +1059,49 @@
             <p>© 2025 Nachiketh Venkatappa Boin</p>
         </div>
     </footer>
-</body>
-</html>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const stickyNameBar = document.querySelector('.sticky-name-bar');
+            const heroTitle = document.querySelector('.hero-title');
+            const header = document.querySelector('header');
+            const hamburgerButton = document.querySelector('.hamburger-button');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const menuOverlay = document.querySelector('.menu-overlay');
+            const menuLinks = document.querySelectorAll('.menu-nav-link');
+            
+            // Sticky header functionality
+            function updateStickyElements() {
+                const heroTitleRect = heroTitle.getBoundingClientRect();
+                
+                if (heroTitleRect.bottom <= 100) {
+                    stickyNameBar.classList.add('visible');
+                    heroTitle.classList.add('shrink');
+                } else {
+                    stickyNameBar.classList.remove('visible');
+                    heroTitle.classList.remove('shrink');
+                }
+            }
+            
+            // Hamburger menu functionality
+            function toggleMenu() {
+                hamburgerButton.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+            }
+            
+            function closeMenu() {
+                hamburgerButton.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+            
+            // Event listeners
+            hamburgerButton.addEventListener('click', toggleMenu);
+            menuOverlay.addEventListener('click', closeMenu);
+            
+            // Close menu when clicking on a navigation link
+            menuLinks.forEach(link => {
+                link.
