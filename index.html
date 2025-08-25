@@ -1104,4 +1104,22 @@
             
             // Close menu when clicking on a navigation link
             menuLinks.forEach(link => {
-                link.
+                link.addEventListener('click', () => {
+                    setTimeout(closeMenu, 100); // Small delay for smooth scrolling
+                });
+            });
+            
+            // Close menu on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                    closeMenu();
+                }
+            });
+            
+            // Scroll listeners
+            window.addEventListener('scroll', updateStickyElements);
+            window.addEventListener('resize', updateStickyElements);
+        });
+    </script>
+</body>
+</html>
