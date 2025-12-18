@@ -361,7 +361,6 @@
         
         .card-description li {
             padding: 8px 0;
-            position: absolute;
             position: relative;
             padding-left: 20px;
         }
@@ -753,12 +752,10 @@
             }
         }
         
-        /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
         
-        /* Focus states */
         .hamburger-button:focus,
         .menu-nav-link:focus,
         .menu-contact-item a:focus,
@@ -926,7 +923,9 @@
             
             <div class="content-card">
                 <h3 class="card-title">Assistant Manager- Electrical Automation and Maintenance</h3>
-                <div class="card-subtitle">JSW Steel</div>
+                <div class="card-subtitle">
+                    <a href="https://www.jswsteel.in/dolvi-works" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">JSW Steel</a>
+                </div>
                 <div class="card-meta">June 2023-Sep 2024 · Navi Mumbai, India</div>
                 <div class="card-description">
                     <ul>
@@ -1060,7 +1059,6 @@
             const menuOverlay = document.querySelector('.menu-overlay');
             const menuLinks = document.querySelectorAll('.menu-nav-link');
             
-            // Sticky header functionality
             function updateStickyElements() {
                 const heroTitleRect = heroTitle.getBoundingClientRect();
                 
@@ -1073,7 +1071,6 @@
                 }
             }
             
-            // Hamburger menu functionality
             function toggleMenu() {
                 hamburgerButton.classList.toggle('active');
                 mobileMenu.classList.toggle('active');
@@ -1088,25 +1085,21 @@
                 document.body.style.overflow = 'auto';
             }
             
-            // Event listeners
             hamburgerButton.addEventListener('click', toggleMenu);
             menuOverlay.addEventListener('click', closeMenu);
             
-            // Close menu when clicking on a navigation link
             menuLinks.forEach(link => {
                 link.addEventListener('click', () => {
-                    setTimeout(closeMenu, 100); // Small delay for smooth scrolling
+                    setTimeout(closeMenu, 100);
                 });
             });
             
-            // Close menu on escape key
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
                     closeMenu();
                 }
             });
             
-            // Scroll listeners
             window.addEventListener('scroll', updateStickyElements);
             window.addEventListener('resize', updateStickyElements);
         });
