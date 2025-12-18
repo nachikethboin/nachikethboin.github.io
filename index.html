@@ -340,6 +340,14 @@
             color: #2997ff;
             margin-bottom: 4px;
             font-weight: 400;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Hover animation for arrow in subtitle */
+        .card-subtitle a:hover .show-link-icon {
+            transform: translateX(4px);
         }
         
         .card-meta {
@@ -666,6 +674,7 @@
         .show-link-icon {
             font-size: 16px;
             transition: transform 0.3s ease;
+            display: inline-block;
         }
         
         .show-publication-link:hover .show-link-icon,
@@ -924,7 +933,9 @@
             <div class="content-card">
                 <h3 class="card-title">Assistant Manager- Electrical Automation and Maintenance</h3>
                 <div class="card-subtitle">
-                    <a href="https://www.jswsteel.in/dolvi-works" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">JSW Steel</a>
+                    <a href="https://www.jswsteel.in/dolvi-works" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">
+                        JSW Steel <span class="show-link-icon">→</span>
+                    </a>
                 </div>
                 <div class="card-meta">June 2023-Sep 2024 · Navi Mumbai, India</div>
                 <div class="card-description">
